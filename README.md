@@ -8,4 +8,4 @@ My name is Michael Parish. I am a Master's degree student at SUNY New Paltz. Dur
 
 ## Contributions/Collaborations
 
-If you have idea or suggestions for this project, feel free to contact me at parishm1@hawkmail.newpaltz.edu.
+If you have ideas or suggestions for this project, feel free to contact me at parishm1@hawkmail.newpaltz.edu.
