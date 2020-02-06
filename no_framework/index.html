@@ -7,7 +7,71 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
   </head>
   <body>
-  <section class="section">
+
+  <!-- navbar begin -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
+          </a>
+    
+          <a class="navbar-item">
+            Documentation
+          </a>
+    
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item">
+                Jobs
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+<!-- navbar end -->  
+<!-- column section begin -->  
+<section class="section">
     <div class="container">
       <h1 class="title">
         Git is awesome
@@ -19,9 +83,23 @@
       <div class="columns"> <!-- columns are the basis of layouts -->
         <div class="column">
           First column
+          <div class="box" id="VueBox">
+            {{message.text}}
+            <br />
+            {{message.number}}
+          </div>
         </div>
         <div class="column">
           Second column
+          <div class="box" id="VueBox2">
+          <div class="notification is-primary" v-for="(x, i) in todos">
+            <button class="delete" @click="deleter(i)"></button>
+            <!-- i is index of item in array -->
+            {{i}}. {{x.text}}
+          </div>
+          <input class="input" type="text" placeholder="Text input" v-model="newTodo">
+          <button class="btn" @click="add()">Add</button>
+          </div>
         </div>
         <div class="column">
           Third column
@@ -35,8 +113,49 @@
       </div>
     </div>
   </section>
+  <!-- column section end -->
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    const app = new Vue({
+      el: '#VueBox',
+      data: {
+        message: {
+          text: 'Hello Vue!',
+          number: 5
+        }
+      }
+    })
+  
+  
+  </script>
+  <script>
+
+    const app2 = new Vue({
+      el: '#VueBox2',
+      data: { /* an array of objects, data one place, methods another place */
+        newTodo: "",
+        todos: [
+          { text: 'Learn JavaScript' },
+          { text: 'Learn Vue' },
+          { text: 'Build something awesome' }
+        ]
+      },
+      methods: {
+        deleter(i){
+          this.todos.splice(i, 1); /* more direct and obvious than straight js */
+        },
+        add(){
+          this.todos.push({text: this.newTodos})
+        }
+      }
+    })
+  
+  
+  </script>
   <script>
     $(function(){
       $(".column").addClass("has-text-danger");
@@ -53,4 +172,7 @@
     link - for stylesheets
     scripts - place at end, labor intensive to load
     min = minify (must make a separate min file)
+    scripts are concatenated one after the other
+    var vs const - try to use const over var as much as possible
+    json objects in Vue constructor = el and data
 -->
