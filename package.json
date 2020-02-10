@@ -1,0 +1,22 @@
+{
+  "name": "what_do_you_meme",
+  "version": "1.0.0",
+  "description": "What Do You Meme is a class project for Web Server Programming, Spring 2020 at SUNY New Paltz. We'll be working on files for the project in class and following along with them in this project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeParish/what-do-you-meme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeParish/what-do-you-meme/issues"
+  },
+  "homepage": "https://github.com/MikeParish/what-do-you-meme#readme"
+}
