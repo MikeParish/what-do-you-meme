@@ -4,10 +4,14 @@
   "description": "What Do You Meme is a class project for Web Server Programming, Spring 2020 at SUNY New Paltz. We'll be working on files for the project in class and following along with them in this project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "dependencies": {
-    "express": "4.17.1"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   },
   "repository": {
     "type": "git",
