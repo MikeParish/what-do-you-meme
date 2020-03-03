@@ -1,4 +1,4 @@
-export const Players = [
+export const Players = [ /* array of player objects */
     { Name: 'Bernie', Score: 0, isDealer: false }
 ];
 
