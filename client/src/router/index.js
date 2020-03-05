@@ -1,21 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from '../views/Home.vue'
 import Game from '../views/Game.vue'
 import Login from '../views/Login.vue'
+import { CurrentUser } from '../models/Users'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+  { path: '/', name: 'Home', component: Home },
   {
     path: '/game',
     name: 'Game',
-    component: Game
+    component: Game, 
+    meta: {isSecret: true},
+     
   },
   {
     path: '/login',
@@ -36,6 +36,11 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
+
+router.beforeEach( (to, from, next) => {
+  if(to.meta.isSecret && !CurrentUser) next('/login');
+  else next();
+}); 
 
 export default router
