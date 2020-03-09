@@ -9,13 +9,15 @@ import { CurrentUser } from '../models/Users'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
+  { path: '/', 
+    name: 'Home', 
+    component: Home 
+  },
   {
     path: '/game',
     name: 'Game',
     component: Game, 
     meta: {isSecret: true},
-     
   },
   {
     path: '/login',

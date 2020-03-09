@@ -7,26 +7,3 @@
     </div>
   </section>
 </template>
-
-<script>
-import { Players, PictureDeck, CurrentPicture, Init } from "../models/Game"; 
-Init();
-
-export default {
-  name: 'Home',
-  data:()=>({
-    Players,
-    PictureDeck,
-    CurrentPicture    
-  }),
-  components: {
-    
-  }
-}
-</script>
-
-<style>
-  img.card-image {
-    width: 100%;
-  }
-</style>
