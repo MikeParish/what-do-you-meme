@@ -21,24 +21,14 @@
         <router-link to="/login" class="navbar-item" active-class="is-current">Login</router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-            More
-            </a>
+            <a class="navbar-link">More</a>
 
             <div class="navbar-dropdown">
-            <a class="navbar-item is-current">
-                About
-            </a>
-            <a class="navbar-item">
-                Jobs
-            </a>
-            <a class="navbar-item">
-                Contact
-            </a>
+            <a class="navbar-item is-current">About</a>
+            <a class="navbar-item">Jobs</a>
+            <a class="navbar-item">Contact</a>
             <hr class="navbar-divider">
-            <a class="navbar-item">
-                Report an issue
-            </a>
+            <a class="navbar-item">Report an issue</a>
             </div>
         </div>
         </div>
@@ -46,12 +36,8 @@
         <div class="navbar-end">
         <div class="navbar-item">
             <div class="buttons">
-            <a class="button is-primary">
-                <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-                Log in
-            </a>
+            <a class="button is-primary"><strong>Sign up</strong></a>
+            <a class="button is-light">Log in</a>
             </div>
         </div>
         </div>
