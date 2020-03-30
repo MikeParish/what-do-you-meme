@@ -2,8 +2,8 @@ const express = require('express');
 const gameController = require('./controllers/game');
 const path = require('path')
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 app
     .use(express.json())
@@ -18,4 +18,4 @@ app
         res.sendFile(homePath)
     })
 
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Listening at http://localhost:${port}`));

@@ -22,22 +22,17 @@
 </template>
 
 <script>
-import { Players, PictureDeck, CurrentPicture, Init } from "../models/Game";
+import * as Game from "../models/Game";
 
 export default {
   name: 'Home',
-  
   created() {
-    Init();
+    Game.Init();
   },
-  
   data:()=>({
-    Players,
-    PictureDeck,
-    CurrentPicture    
+    Game    
   }),
   components: {
-    
   }
 }
 </script>
