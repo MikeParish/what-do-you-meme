@@ -3,7 +3,7 @@ const CaptionsDeck = require('../models/quoteCards');
 
 const DEAL_AMOUNT = 3;
 
-const iCurrentCaption = 0;
+let iCurrentCaption = 0;
 
 const Players = [ /* array of player objects */
     { Name: 'Bernie', Score: 0, isDealer: false },
@@ -23,6 +23,10 @@ let CurrentPicture = "";
 const CardsInPlay = [];
 
 function SubmitCaption(caption, playerID) {
+    const player = Players[playerID];
+    if(player.isDealer) { 
+        throw Error('Dealer is not allowed to submit a caption')
+    }
     CardsInPlay.push({
         Text: caption,
         PlayerID: playerID,
@@ -32,7 +36,7 @@ function SubmitCaption(caption, playerID) {
 
 function Join(userID){
     const user = users.Get(userID);
-    Players.push( { Name: user.Name, Score: 0, isDealer: true } )
+    Players.push( { Name: user.Name, Score: 0, isDealer: false } )
 
     const myCards = CaptionsDeck.list.slice(iCurrentCaption, iCurrentCaption + DEAL_AMOUNT);
     iCurrentCaption += DEAL_AMOUNT;
