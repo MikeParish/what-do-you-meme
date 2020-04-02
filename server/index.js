@@ -1,5 +1,6 @@
 const express = require('express');
 const gameController = require('./controllers/game');
+const usersController = require('./controllers/users');
 const path = require('path')
 
 const app = express();
@@ -11,6 +12,7 @@ app
     .use(express.static(__dirname + '/../client/dist')) /* returns a function every time a request comes in */
     .get('/', (req, res) => res.send('This class is awesome!') )
     .use('/game', gameController)
+    .use('/users', usersController)
 
     .use((req, res) => {
         const homePath = path.join(__dirname + '/../client/dist/index.html');

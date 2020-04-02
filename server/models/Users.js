@@ -1,6 +1,6 @@
 const Users = [
-    { Name: 'Mike', Password: '2020', Email: 'm@h.edu' },
-    { Name: 'Beck', Password: '2021', Email: 'b@h.edu' },
+    { Name: 'Mike', Password: '2020', Email: 'm@h.edu', userID: 0 },
+    { Name: 'Beck', Password: '2021', Email: 'b@h.edu', userID: 1 },
 ];
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         if(!user) throw Error('User not found');
         if(user.Password != password) throw Error('Wrong Password');
 
-        return this.CurrentUser = user;
+        return user;
 
     }
 }
