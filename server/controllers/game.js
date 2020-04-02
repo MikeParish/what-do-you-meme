@@ -8,10 +8,7 @@ const router = express.Router(); /* brand new router */
 game.SubmitCaption("Corona Sucks", 0);
 
 router
-    .use('/quoteCards', (req, res, next) => { 
-        console.log({method: req.method, body: req.body});
-        next(); /* whatever code you want and then next */
-    })
+    .post('/join', (req, res) => res.send(game.Join(req.body.userID)) )
     .get('/quoteCards', (req, res) => res.send(quoteCards))
     .post('/quoteCards', (req, res) => {
         quoteCards.add(req.body.text);
@@ -25,8 +22,9 @@ router
 
       }  ) )
     .post('/cardsInPlay', (req, res) => {
-        const playerID = 0;
+        const playerID = req.body.playerID;
         game.SubmitCaption(req.body.caption, playerID);
+        res.send({ success: true })
     })
 
 module.exports = router;

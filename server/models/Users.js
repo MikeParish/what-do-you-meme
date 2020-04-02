@@ -4,9 +4,6 @@ const Users = [
 ];
 
 module.exports = {
-
-    //CurrentUser = null,
-
     Login(email, password) {
 
         const user = Users.find(x => x.Email == email);
@@ -15,5 +12,6 @@ module.exports = {
 
         return user;
 
-    }
+    },
+    Get: (userID) => Users[userID] /*Get is a function, returns user at that index */
 }

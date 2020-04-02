@@ -1,4 +1,9 @@
-const CurrentUser = require("./Users");
+const users = require("./Users");
+const CaptionsDeck = require('../models/quoteCards');
+
+const DEAL_AMOUNT = 3;
+
+const iCurrentCaption = 0;
 
 const Players = [ /* array of player objects */
     { Name: 'Bernie', Score: 0, isDealer: false },
@@ -25,22 +30,21 @@ function SubmitCaption(caption, playerID) {
     })
 }
 
-function Init(){
-    /* need to rework this */
-    Players.push({Name: CurrentUser.Name, Score: 0, isDealer: true})
+function Join(userID){
+    const user = users.Get(userID);
+    Players.push( { Name: user.Name, Score: 0, isDealer: true } )
 
-    MyCards.push(CaptionsDeck[0])
-    MyCards.push(CaptionsDeck[1])
+    const myCards = CaptionsDeck.list.slice(iCurrentCaption, iCurrentCaption + DEAL_AMOUNT);
+    iCurrentCaption += DEAL_AMOUNT;
 
-    CurrentPicture = PictureDeck[0];
+    return { playerID: Players.length -1, myCards }
 }
 
 module.exports = {
-    Players, 
-    MyCards, 
+    Players,  
     PictureDeck, 
     CurrentPicture, 
     CardsInPlay: CardsInPlay, /*returns new array of items, where every item is item in original array*/ 
     SubmitCaption, 
-    Init
+    Join
 }
