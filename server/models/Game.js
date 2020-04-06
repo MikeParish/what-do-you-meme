@@ -19,6 +19,11 @@ const PictureDeck = [
 ];
 
 let CurrentPicture = "";
+let iCurrentPicture = 0;
+
+function FlipPicture() {
+    return module.exports.CurrentPicture = PictureDeck[iCurrentPicture++]
+}
 
 const CardsInPlay = [];
 
@@ -50,5 +55,6 @@ module.exports = {
     CurrentPicture, 
     CardsInPlay: CardsInPlay, /*returns new array of items, where every item is item in original array*/ 
     SubmitCaption, 
-    Join
+    Join,
+    FlipPicture
 }

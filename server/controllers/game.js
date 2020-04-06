@@ -7,6 +7,7 @@ const router = express.Router(); /* brand new router */
 
 router
     .post('/join', (req, res) => res.send(game.Join(req.body.userID)) )
+    .post('/flipPicture', (req, res) => res.send(game.FlipPicture()) )
     .get('/quoteCards', (req, res) => res.send(quoteCards))
     .post('/quoteCards', (req, res) => {
         quoteCards.add(req.body.text);
