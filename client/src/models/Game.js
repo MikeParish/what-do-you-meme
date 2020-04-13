@@ -6,6 +6,6 @@ export const MyCards = [];
 
 export function Init(){
     
-    myFetch('http://localhost:3000/game')
+    myFetch('http://localhost:3000/game') /* this needs to be changed to /game or game */
         .then(x=> State = x);
 }
