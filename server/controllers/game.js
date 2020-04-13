@@ -5,6 +5,14 @@ const game = require('../models/Game');
 
 const router = express.Router(); /* brand new router */
 
+router.use(function(req, res, next) {
+    if(req.userID != null) {
+        req.PlayerID = game.GetPlayerID(req.userID)
+    }
+    console.log({ userID: req.userID, playerID: req.playerID })
+    next();
+})
+
 router
     .post('/join', (req, res) => res.send(game.Join(req.body.userID)) )
     .post('/flipPicture', (req, res) => res.send(game.FlipPicture()) )
@@ -21,8 +29,7 @@ router
 
       }  ) )
     .post('/cardsInPlay', (req, res) => {
-        const playerID = req.body.playerID;
-        game.SubmitCaption(req.body.caption, playerID);
+        game.SubmitCaption(req.body.caption, req.playerID);
         res.send({ success: true })
     })
 
